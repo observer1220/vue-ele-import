@@ -1,4 +1,4 @@
-# vue-ele-import | 超简单、好用的 element-ui Excel 导入组件
+# 繁體中文版 vue-ele-import
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg)](https://opensource.org/licenses/mit-license.php)
 [![npm](https://img.shields.io/npm/v/vue-ele-import.svg)](https://www.npmjs.com/package/vue-ele-import)
