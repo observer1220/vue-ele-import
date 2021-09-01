@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- 错误显示表 -->
+    <!-- 錯誤显示表 -->
     <template v-if="errorTableData.length">
-      <h1 style="color: #f56c6c">错误信息展示</h1>
+      <h1 style="color: #f56c6c">錯誤信息展示</h1>
 
       <el-table
         :data="errorTableData"
@@ -11,18 +11,18 @@
         style="width: 100%"
       >
         <el-table-column
-          label="错误行号"
+          label="錯誤行號"
           prop="row"
           width="180"
         ></el-table-column>
         <el-table-column
-          label="错误原因"
+          label="錯誤原因"
           prop="reason"
         ></el-table-column>
       </el-table>
     </template>
-    <!-- 数据列表 -->
-    <h1>数据列表</h1>
+    <!-- 數據列表 -->
+    <h1>數據列表</h1>
     <el-table
       :cell-class-name="checkCell"
       :data="tableData"
@@ -32,7 +32,7 @@
     >
       <el-table-column
         align="center"
-        label="行号"
+        label="行號"
         type="index"
         width="50"
       ></el-table-column>
@@ -45,7 +45,7 @@
         header-align="center"
         v-for="(label, field) of fields"
       >
-        <!-- 自定义错误显示 -->
+        <!-- 自定义錯誤显示 -->
         <template slot-scope="scope">
           <el-tooltip
             :content="errorData[scope.$index][field]"
@@ -62,7 +62,7 @@
     </el-table>
 
     <div class="ele-import-action">
-      <el-button @click="handlePre">重新上传</el-button>
+      <el-button @click="handlePre">重新上傳</el-button>
       <el-button
         :loading="isLoading"
         @click="handleRequest"
@@ -128,7 +128,7 @@ export default {
     }
   },
   methods: {
-    // 检查单元格是否错误
+    // 检查单元格是否錯誤
     checkCell ({ row, column, rowIndex }) {
       if (this.errorData[rowIndex] && this.errorData[rowIndex][column.property]) {
         return 'ele-import-error-cell'
@@ -196,7 +196,7 @@ export default {
       if (this.errorTableData.length) {
         this.$notify.error({
           title: '提示',
-          message: '请处理完错误后重新上传'
+          message: '請處理完錯誤後重新上傳'
         })
         return
       }
@@ -214,11 +214,11 @@ export default {
       }
       try {
         await this.requestFn(tableData)
-        this.$message.success('导入成功')
+        this.$message.success('導入成功')
         this.goNext()
       } catch (error) {
         this.errorData = error
-        this.$message.error('导入失败, 请重试')
+        this.$message.error('導入失敗，請重試')
       } finally {
         this.isLoading = false
       }

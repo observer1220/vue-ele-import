@@ -15,7 +15,7 @@
       </el-alert>
     </div>
 
-    <!-- 上传组件 -->
+    <!-- 上傳组件 -->
     <el-upload
       :before-upload="beforeUpload"
       :file-list="fileList"
@@ -29,8 +29,8 @@
     >
       <i class="el-icon-upload"></i>
       <div class="el-upload__text">
-        将填写后的文件拖到此处，或
-        <em>点击上传</em>
+        將填寫後的文件拖到此處，或
+        <em>點擊上傳</em>
       </div>
     </el-upload>
 
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-// 上传文件页面
+// 上傳文件页面
 import excel from '../excel'
 
 export default {
@@ -67,20 +67,20 @@ export default {
     }
   },
   methods: {
-    // 假上传
+    // 假上傳
     fakeRequeset () {
       this.fileList = []
     },
-    // 检测文件类型
+    // 检测文件類型
     checkType (file) {
       const fileExt = file.name.split('.').pop().toLocaleLowerCase()
       const extArr = ['xlsx', 'xls', 'csv']
       return extArr.includes(fileExt)
     },
-    // 上传错处提示
+    // 上傳錯處提示
     uploadError (message) {
       this.$notify.error({
-        title: '上传出错了',
+        title: '上傳出錯了',
         message: message
       })
     },
@@ -90,7 +90,7 @@ export default {
       titles.forEach((item) => {
         if (!columns.includes(item)) {
           this.$notify.error({
-            title: '数据错处了',
+            title: '數據錯處了',
             message: item + ' 列未找到'
           })
         }
@@ -99,11 +99,11 @@ export default {
     handleGoNext () {
       this.$notify.error({
         title: '提示',
-        message: '请先上传数据'
+        message: '請先上傳數據'
       })
     },
 
-    // 改变 tableData 的 key, 并且过滤掉不需要的字段
+    // 改变 tableData 的 key, 並且过滤掉不需要的字段
     changeDatakeyAndFilter (arr) {
       const fields = this.fields
       return arr.map((item) => {
@@ -118,9 +118,9 @@ export default {
     async beforeUpload (file) {
       if (this.isLoading) return
 
-      // 检测文件类型
+      // 检测文件類型
       if (!this.checkType(file)) {
-        this.uploadError('文件：' + file.name + ' 文件类型错误，请在模板文件上修改后上传')
+        this.uploadError('文件：' + file.name + ' 文件類型錯誤，請在模板文件上修改後上傳')
         return false
       }
 
@@ -129,7 +129,7 @@ export default {
         const { columns, tableData } = await excel(file)
 
         if (!(columns.length && tableData.length)) {
-          this.uploadError('请打开模板文件, 并填写数据')
+          this.uploadError('請打開模板文件, 並填寫數據')
         } else {
           this.checkTableTitle(columns, this.fields)
           this.$emit('upload', columns, this.changeDatakeyAndFilter(tableData))
@@ -138,7 +138,7 @@ export default {
       } catch (e) {
         // eslint-disable-next-line
         console.error(e)
-        this.uploadError('文件读取出错，请重新上传')
+        this.uploadError('文件讀取出錯，請重新上傳')
       } finally {
         this.isLoading = false
       }

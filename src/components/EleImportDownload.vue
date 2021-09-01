@@ -14,7 +14,7 @@
         :underline="false"
         @click.native="handleDownload"
         target="_blank"
-      >点击下载模板文件</el-link>
+      >點擊下載模板文件</el-link>
     </div>
 
     <div class="ele-import-action">
@@ -27,7 +27,7 @@
           :underline="false"
           style="color: white"
           target="_blank"
-        >下载模板</el-link>
+        >下載模板</el-link>
       </el-button>
       <el-button
         @click="handleNext"
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-// 下载文件页面
+// 下載文件页面
 import Cookie from 'js-cookie'
 
 export default {
@@ -56,28 +56,28 @@ export default {
     }
   },
   methods: {
-    // 点击下载
+    // 點擊下載
     handleDownload () {
       Cookie.set('ele-import-download-' + this.filepath, true)
       this.hasDownload = true
     },
 
-    // 点击下一步
+    // 點擊下一步
     handleNext () {
       if (this.hasDownload) {
         this.goNext()
       } else {
-        this.$message.error('您还未下载模板文件')
+        this.$message.error('您還未下載模板文件')
       }
     },
 
-    // 判断是否已经下载
+    // 判断是否已经下載
     checkHasDownload () {
       this.hasDownload = Cookie.get('ele-import-download-' + this.filepath)
     }
   },
   mounted () {
-    // 判断是否下载过
+    // 判断是否下載过
     this.checkHasDownload()
   }
 }

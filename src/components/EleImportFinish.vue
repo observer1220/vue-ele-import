@@ -3,12 +3,12 @@
     <div>
       <i class="el-icon-success"></i>
     </div>
-    <div>导入成功</div>
+    <div>導入成功</div>
     <div class="ele-import-action">
       <el-button
         @click="handleFinish"
         type="primary"
-      >查看详情</el-button>
+      >查看詳情</el-button>
     </div>
   </div>
 </template>

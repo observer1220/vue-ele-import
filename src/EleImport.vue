@@ -10,12 +10,12 @@
     >
       <ele-steps
         :active="currentStep"
-        :steps="['下载模板', '上传文件', '确认数据', '完成']"
+        :steps="['下載模板', '上傳文件', '確認數據', '完成']"
         :stepsAttrs="{
           'align-center': true
         }"
       />
-      <!-- 下载模板 -->
+      <!-- 下載模板 -->
       <ele-import-download
         :filepath="filepath"
         v-if="currentStep === 1"
@@ -83,7 +83,7 @@ export default {
     // 标题
     title: {
       type: String,
-      default: '批量导入'
+      default: '批量導入'
     },
     // 增加附加数据
     append: Object,
@@ -98,7 +98,7 @@ export default {
         for (const key in formatter) {
           if (!(formatter[key] instanceof Object)) {
             // eslint-disable-next-line
-            console.error(`${key}的值必须为 对象 或 函数`)
+            console.error(`${key}的值必須為 對象 或 函數`)
             return false
           }
         }
