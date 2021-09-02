@@ -1,10 +1,10 @@
 {
   "name": "@observer1220/vue-ele-import",
   "description": "繁體中文版 element-ui Excel導入套件",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": false,
   "scripts": {
-    "build:lib": "vue build -t lib --name vue-ele-import -d ./dist/ ./src/index.js",
+    "build:lib": "vue build -t lib --name @vue-ele-import -d ./dist/ ./src/index.js",
     "build": "npm run lint && npm run build:lib",
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint"
@@ -24,19 +24,23 @@
     "excel import"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.15.3",
+    "@babel/runtime-corejs2": "^7.15.3",
     "all-trim": "^1.1.1",
+    "core-js": "^3.16.4",
     "js-cookie": "^2.2.0",
     "lodash.clonedeep": "^4.5.0",
     "vue-ele-steps": "^1.0.0",
     "xlsx": "^0.14.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-eslint": "^3.7.0",
     "@vue/cli-service": "^3.7.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
-    "core-js": "^2.6.5",
+    "babel-plugin-component": "^1.1.1",
     "element-ui": "^2.8.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
